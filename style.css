@@ -1,0 +1,262 @@
+body {
+  margin: 0;
+  background-color: black;
+  font-family: serif;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame {
+  width: 800px;
+  height: 480px;
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#hood-image {
+  cursor: pointer;
+  pointer-events: auto;
+  max-width: 35%;
+  max-height: 65%;
+  cursor: pointer;
+  transition: opacity 1s ease;
+}
+
+/* эффекты */
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease forwards;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.pulsing {
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.hidden {
+  display: none;
+}
+
+/* затемнение */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 5s ease-in-out;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  pointer-events: none; /* 💡 позволяет кликать сквозь overlay */
+}
+
+.overlay.fade-in {
+  opacity: 1;
+  pointer-events: auto; /* 💡 блокирует клик при затемнении */
+}
+
+/* текст под рамкой */
+.screen-text {
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: lowercase;
+  opacity: 0.85;
+  font-family: serif;
+  min-height: 1.2em;
+}
+.frame {
+  position: relative;
+  width: 800px;
+  height: 480px;
+  background-color: black;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+}
+/* Земля */
+#dirt {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px; /* настраивай по вкусу */
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Остальные предметы (выше земли) */
+.item, .tree {
+  position: absolute;
+  z-index: 1;
+}
+#tree1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 250px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.item {
+  position: absolute;
+  cursor: none;
+}
+
+/* Предметы */
+#stump {
+  bottom: 70px;
+  left: 360px;
+  height: 170px;
+}
+
+#door {
+  bottom: 70px;
+  right: 60px;
+  height: 380px;
+}
+
+#hairbrush {
+  bottom: 0px;
+  left: 320px;
+  width: 140px;
+  pointer-events: auto;
+}
+
+/* === ТЕКСТ === */
+#caption {
+  margin-top: 20px;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+  font-family: serif;
+  min-height: 1.2em;
+  white-space: pre-line; /* чтобы перенос строк работал */
+  min-height: 2.4em; /* фиксирует высоту под две строки */
+}
+
+/* Надпись у курсора */
+.cursor-label {
+  position: fixed;
+  pointer-events: none;
+  color: white;
+  font-size: 0.8rem;
+  font-family: serif;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+/* Скрытие */
+.hidden {
+  display: none;
+}
+/* Плавное исчезновение чёрного экрана в начале сцены */
+.overlay.fade-out-screen {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  z-index: 10;
+  animation: fadeOut 2.5s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.corner-button {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  font-family: serif;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  cursor: pointer;
+  text-transform: lowercase;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+.corner-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#hood-image.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#hood-image {
+  opacity: 0;
+}
+.corner-button.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+#fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+  z-index: 999;
+}
+
+#fade-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}

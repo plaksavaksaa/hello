@@ -1,0 +1,30 @@
+.corner {
+  position: absolute;
+  height: auto;
+  z-index: 10;
+}
+
+/* С отступами от краёв */
+.top-left {
+  top: 10px;
+  left: 10px;
+  width: 120px;
+}
+
+.top-right {
+  top: 20px;
+  right: 20px;
+  width: 100px;
+}
+
+.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  width: 100px;
+}
+
+.bottom-right {
+  bottom: 10px;
+  right: 10px;
+  width: 120px;
+}

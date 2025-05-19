@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Forest</title>
+  <link rel="stylesheet" href="forest.css" />
+</head>
+<body>
+  <div id="fade-in-overlay"></div>
+  <div class="container">
+    <div class="frame">
+      <!-- Навигационные зоны -->
+      <div class="nav-zone left-zone" data-direction="left"></div>
+      <div class="nav-zone right-zone" data-direction="right"></div>
+
+      <!-- Засветление -->
+      <div class="overlay-left" id="overlayLeft"></div>
+      <div class="overlay-right" id="overlayRight"></div>
+
+      <!-- Земля и деревья -->
+      <img src="assets/dirt.png" id="dirt" />
+      <img src="assets/tree1.png" id="tree1" />
+
+      <!-- Предметы -->
+      <img src="assets/door.png" id="door" class="item"
+           data-label="door" data-caption="oh, it seems to be locked." />
+      <img src="assets/bed.png" id="bed" class="item"
+           data-label="bed"
+           data-caption="My parents bought this bed when I was ten. Back then it felt huge, the springs squeaked every time I turned. I’m fifteen now, and my feet reach the edge." />
+      <img src="assets/panties.png" id="panties" class="item"
+           data-label="panties"
+           data-caption="they hang like a flag..." />
+      <img src="assets/fluttershy.png" id="fluttershy" class="item"
+           data-label="fluttershy"
+           data-caption="She was the only one who never touched me the wrong way." />
+    </div>
+
+    <!-- Интерфейс -->
+    <button id="lookBtn" class="corner-button">look</button>
+    <div id="caption" class="screen-text"></div>
+    <div class="cursor-label" id="cursorLabel"></div>
+
+    <audio id="forest-music" src="assets/forest-music.mp3" loop></audio>
+    <script src="forest.js"></script>
+  </div>
+</body>
+</html>
